@@ -1,3 +1,5 @@
+-- This file contains the schema for our PostgreSQL database.
+
 -- Create the uuid-ossp extension if it doesn't exist.
 -- This is needed for generating UUIDs.
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
@@ -8,8 +10,12 @@ DROP TABLE IF EXISTS accounts;
 DROP TABLE IF EXISTS users;
 
 -- Create the users table.
+-- Added email, password_hash, and phone_number.
 CREATE TABLE users (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    email VARCHAR(255) UNIQUE NOT NULL, -- Email must be unique for login
+    password_hash VARCHAR(255) NOT NULL, -- Store the hashed password
+    phone_number VARCHAR(20),            -- Optional phone number
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );

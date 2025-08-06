@@ -1,9 +1,9 @@
 const express = require("express");
 const { checkDBConnection } = require("./db/index");
-const { getHealthStatus } = require("./api/controllers/healthController");
+const { getHealthStatus } = require("./controllers/healthController");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const apiRoutes = require("./api/routes/index");
+const apiRoutes = require("./routes/index");
 dotenv.config();
 
 PORT = process.env.PORT || 3000;
@@ -11,7 +11,7 @@ PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors());0
 
 app.use('/api', apiRoutes);
 

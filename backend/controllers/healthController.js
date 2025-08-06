@@ -1,4 +1,4 @@
-const { checkDBConnection } = require("../../db/index");
+const { checkDBConnection } = require("../db/index");
 
 const getHealthStatus = async (req, res) => {
     try{

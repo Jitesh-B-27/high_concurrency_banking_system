@@ -30,7 +30,7 @@ const createUserAndAccount = async (email, password, initialBalance = 0, phoneNu
         console.error('Error during user and account creation: ', error);
 
         if (error.code === '23505'){ //PostgreSQL error code for unique_violation
-            throw new Error('User with this email already exists');
+            throw new Error('User with this email already exists.');
         }
         throw error;
     } finally{

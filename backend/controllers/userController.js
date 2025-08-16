@@ -18,7 +18,7 @@ const createUserController = async (req, res) => {
     }
 
     try{
-        const { userId, accoundId } = await userService.createUserAndAccount(
+        const { userId, accountId } = await userService.createUserAndAccount(
             email,
             password,
             initialBalance,
@@ -30,7 +30,7 @@ const createUserController = async (req, res) => {
             message: 'User and account created successfully.',
             data: {
                 userId,
-                accoundId,
+                accountId,
                 email, // Echo back the email for confirmation
             },
         });

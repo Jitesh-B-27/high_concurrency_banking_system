@@ -1,7 +1,15 @@
+const { validate: isUuid } = require("uuid");
 const accountService = require('../services/accountService');
 
 const getAccountDetailsController = async (req, res) => {
     const { id } = req.params;
+
+    if (!isUuid(id)) {
+        return res.status(404).json({
+            success: false,
+            message: 'Account not found.',
+        });
+    }
 
     try{
         const account = await accountService.getAccountDetails(id);
